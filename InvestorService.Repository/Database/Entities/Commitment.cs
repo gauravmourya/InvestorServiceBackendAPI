@@ -2,7 +2,7 @@
 {
     public class Commitment
     {
-        public int CommitmentID { get; set; }
+        public int ID { get; set; }
         public int InvestorID { get; set; }
         public int AssetClassID { get; set; }
         public decimal Amount { get; set; }

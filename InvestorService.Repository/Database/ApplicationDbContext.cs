@@ -1,4 +1,5 @@
 ﻿using InvestorService.Repository.Database.DbEntities;
+using InvestorService.Repository.Database.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace InvestorService.Repository.Database
@@ -13,33 +14,34 @@ namespace InvestorService.Repository.Database
         public DbSet<CommitmentCurrency> CommitmentCurrencies { get; set; }
         public DbSet<Investor> Investors { get; set; }
         public DbSet<Commitment> Commitments { get; set; }
+        public DbSet<InvestorAddress> InvestorAddresses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // InvestorType
             modelBuilder.Entity<InvestorType>()
                 .ToTable("InvestorType")
-                .HasKey(it => it.InvestorTypeID);
+                .HasKey(it => it.ID);
 
             // InvestorCountry
             modelBuilder.Entity<InvestorCountry>()
                 .ToTable("InvestorCountry")
-                .HasKey(ic => ic.CountryID);
+                .HasKey(ic => ic.ID);
 
             // CommitmentAssetClass
             modelBuilder.Entity<CommitmentAssetClass>()
                 .ToTable("CommitmentAssetClass")
-                .HasKey(ac => ac.AssetClassID);
+                .HasKey(ac => ac.ID);
 
             // CommitmentCurrency
             modelBuilder.Entity<CommitmentCurrency>()
                 .ToTable("CommitmentCurrency")
-                .HasKey(cc => cc.CurrencyID);
+                .HasKey(cc => cc.ID);
 
             // Investor
             modelBuilder.Entity<Investor>()
                 .ToTable("Investor")
-                .HasKey(i => i.InvestorID);
+                .HasKey(i => i.ID);
             modelBuilder.Entity<Investor>()
                 .HasOne(i => i.InvestorType)
                 .WithMany(it => it.Investors)
@@ -52,7 +54,7 @@ namespace InvestorService.Repository.Database
             // Commitment
             modelBuilder.Entity<Commitment>()
                 .ToTable("Commitment")
-                .HasKey(c => c.CommitmentID);
+                .HasKey(c => c.ID);
             modelBuilder.Entity<Commitment>()
                 .HasOne(c => c.Investor)
                 .WithMany(i => i.Commitments)
@@ -65,6 +67,13 @@ namespace InvestorService.Repository.Database
                 .HasOne(c => c.Currency)
                 .WithMany(cc => cc.Commitments)
                 .HasForeignKey(c => c.CurrencyID);
+
+            // InvestorAddress
+            modelBuilder.Entity<InvestorAddress>()
+                .ToTable("InvestorAddress")
+                .HasOne<Investor>()
+                .WithMany()
+                .HasForeignKey(a => a.InvestorID);
         }
     }
 }

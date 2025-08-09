@@ -15,6 +15,7 @@ namespace InvestorService.Repository
                 options.UseSqlServer(configuration.GetConnectionString("DbConnection")));
 
             services.AddScoped<IInvestorTypeRepository, InvestorTypeRepository>();
+            services.AddScoped<IInvestorRepository, InvestorRepository>();
 
             return services;
         }

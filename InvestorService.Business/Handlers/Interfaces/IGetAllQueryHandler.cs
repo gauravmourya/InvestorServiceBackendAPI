@@ -4,4 +4,9 @@
     {
         TOut ExecuteQuery(Tin request);
     }
+
+    public interface IGetAllQueryHandler<out TOut>
+    {
+        TOut ExecuteQuery();
+    }
 }

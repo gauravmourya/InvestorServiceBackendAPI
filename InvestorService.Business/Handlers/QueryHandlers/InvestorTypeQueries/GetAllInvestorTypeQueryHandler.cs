@@ -4,7 +4,7 @@ using InvestorService.Business.BusinessModels.ResponseDtos;
 using InvestorService.Business.Handlers.Interfaces;
 using InvestorService.Repository.DatabaseOperations.Interface;
 
-namespace InvestorService.Business.Handlers.QueryHandlers
+namespace InvestorService.Business.Handlers.QueryHandlers.InvestorTypeQueries
 {
     public class GetAllInvestorTypeQueryHandler : IGetAllQueryHandler<GetInvestorTypeRequestDto, Task<GetAllInvestorTypeResponseDto>>
     {
