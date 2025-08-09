@@ -1,6 +1,12 @@
+using InvestorService.Repository;
+using InvestorService.Business;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddInvestorServiceRepository(builder.Configuration);
+builder.Services.AddInvestorServiceBusiness();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
