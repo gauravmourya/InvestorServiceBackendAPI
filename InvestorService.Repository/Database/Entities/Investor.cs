@@ -6,6 +6,7 @@ namespace InvestorService.Repository.Database.DbEntities
     {
         public int ID { get; set; }
         public string Name { get; set; } = null!;
+        public string Email { get; set; } = null!;
         public int InvestorTypeID { get; set; }
         public int CountryID { get; set; }
         public DateTime DateAdded { get; set; }

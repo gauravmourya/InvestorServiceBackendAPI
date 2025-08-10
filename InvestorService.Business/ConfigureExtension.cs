@@ -16,7 +16,7 @@ namespace InvestorService.Business
 
             services.AddScoped<IGetAllQueryHandler<GetInvestorTypeRequestDto, Task<GetAllInvestorTypeResponseDto>>, GetAllInvestorTypeQueryHandler>();
             services.AddScoped<IGetAllQueryHandler<GetAllInvestorDetailRequestDto, Task<GetAllInvestorDetailResponseDto>>, GetAllInvestorDetailQueryHandler>();
-            
+            services.AddScoped<IGetAllQueryHandler<GetInvestorsCommitmentRequestDto, Task<GetInvestorsCommitmentResponseDto>>, GetInvestorsCommitmentQueryHandler>();
             return services;
         }
     }

@@ -12,6 +12,8 @@ namespace InvestorService.Business.Mapper
 
             CreateMap<InvestorType, InvestorTypeResponseDto>();
             CreateMap<RepoModel.InvestorDetails, InvestorDetails>();
+            CreateMap<RepoModel.AssetClassModel, GroupedAssetClassResponse>();
+            CreateMap<RepoModel.CommitmentModel, GetInvestorsCommitmentResponse>();
         }
     }
 }

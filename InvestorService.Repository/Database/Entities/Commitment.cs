@@ -7,7 +7,7 @@
         public int AssetClassID { get; set; }
         public decimal Amount { get; set; }
         public int CurrencyID { get; set; }
-
+        public DateTime Date { get; set; }
         public Investor Investor { get; set; } = null!;
         public CommitmentAssetClass AssetClass { get; set; } = null!;
         public CommitmentCurrency Currency { get; set; } = null!;

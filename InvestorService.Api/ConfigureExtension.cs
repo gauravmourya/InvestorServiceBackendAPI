@@ -8,8 +8,10 @@ namespace InvestorService.Api
     {
         public static IServiceCollection AddRequestValidators(this IServiceCollection services)
         {
+            //services.AddFluentValidationAutoValidation().AddValidatorsFromAssemblyContaining<GetPaginatedResultsRequestDto>();
             services.AddScoped<IValidator<GetAllInvestorDetailRequestDto>, GetAllInvestorDetailRequestDtoValidator>();
-
+            services.AddScoped<IValidator<GetPaginatedResultsRequestDto>, GetPaginatedResultsRequestDtoValidator>();
+            services.AddScoped<IValidator<GetInvestorsCommitmentRequestDto>, GetInvestorsCommitmentRequestDtoValidator>();
             return services;
         }
     }
